@@ -7,12 +7,78 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:id="@+id/textView4"
+        android:layout_width="99dp"
+        android:layout_height="56dp"
+        android:fontFamily="@font/bangers"
+        android:text="Pass :"
+        android:textAlignment="center"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.121"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.462" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="99dp"
+        android:layout_height="56dp"
+        android:fontFamily="@font/bangers"
+        android:text="User :"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.121"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.259" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="221dp"
+        android:layout_height="116dp"
+        android:background="@drawable/boton_redondeado_verde"
+        android:fontFamily="@font/alex_brush"
+        android:text="Musical"
+        android:textAlignment="center"
+        android:textColor="#E572F8"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="71dp"
+        tools:layout_editor_absoluteY="588dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="227dp"
+        tools:layout_editor_absoluteY="588dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="139dp"
+        android:layout_height="57dp"
+        android:fontFamily="@font/bangers"
+        android:text="Recordar"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="461dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

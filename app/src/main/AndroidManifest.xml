@@ -6,9 +6,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/logodragonrojo"
+        android:icon="@mipmap/logodragon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/logodragonrojo"
+        android:roundIcon="@mipmap/logodragon"
         android:supportsRtl="true"
         android:theme="@style/Theme.Reto1_Android"
         tools:targetApi="31">
@@ -21,6 +21,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Registro"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Comunity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Favoritos"
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

@@ -1,6 +1,10 @@
 package com.example.reto1_android;
 
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,6 +26,39 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button botonRegistro = null;
     private Button entrarComunity = null;
+
+
+
+    ActivityResultLauncher<Intent> startForResultComunity = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+
+            if (result != null && result.getResultCode() == RESULT_OK) {
+                String nomUsu = result.getData().getStringExtra(Comunity.USUARIO);
+                Toast toast1 =
+                        Toast.makeText(getApplicationContext(),
+                                "Adios " + nomUsu, Toast.LENGTH_SHORT);
+                toast1.show();
+            }
+        }
+    });
+
+
+    ActivityResultLauncher<Intent> startForResultRegistro = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+
+            if (result != null && result.getResultCode() == RESULT_OK) {
+            }
+        }
+    });
+
+
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,10 +71,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ((EditText) findViewById( R.id.editTextTextPersonName )).addTextChangedListener( registerEditTextListener );
         ((EditText) findViewById( R.id.editTextTextPassword )).addTextChangedListener( registerEditTextListener );
         CheckBox checkBox = (CheckBox) findViewById (R.id.checkBox);
-
-        ((EditText) findViewById( R.id.editTextTextPersonName )).setText( dataManager.selectUltimo().getLoginUser() );
+        ((EditText) findViewById( R.id.editTextTextPersonName )).setText( dataManager.selectUltimo().getLoginUser());
         ((EditText) findViewById( R.id.editTextTextPassword )).setText( dataManager.selectUltimo().getPass());
-
 
         entrarComunity = (Button) findViewById( R.id.button2);
         entrarComunity.setOnClickListener(new View.OnClickListener() {
@@ -79,9 +114,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 }
 
-                startActivity(new Intent(MainActivity.this, Comunity.class));
-
-
+                Intent intent = new Intent(MainActivity.this, Comunity.class);
+                intent.putExtra("USUARIOLOG", name);
+                startForResultComunity.launch(intent);
 
             }
 
@@ -91,7 +126,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         botonRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, Registro.class));
+                Intent intent = new Intent(MainActivity.this, Registro.class);
+                startForResultRegistro.launch(intent);
             }
 
         });
